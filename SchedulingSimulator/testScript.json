@@ -1,0 +1,946 @@
+{
+  "three_processes_same_release":[
+    {
+      "pid": "enc1",
+      "budget": 2,
+      "deadline": 10,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc2",
+      "budget": 3,
+      "deadline": 5,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc3",
+      "budget": 4,
+      "deadline": 7,
+      "release_time": -1,
+      "periodic": false
+    }
+  ],
+  "different_release_easy_scheduling":
+  [
+    {
+      "pid": "enc1",
+      "budget": 3,
+      "deadline": 10,
+      "release_time": 3,
+      "periodic": false
+    },
+    {
+      "pid": "enc2",
+      "budget": 2,
+      "deadline": 5,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc3",
+      "budget": 3,
+      "deadline": 7,
+      "release_time": 3,
+      "periodic": false
+    }
+  ],
+  "different_release_one_should_preempt":
+  [
+    {
+      "pid": "enc1",
+      "budget": 2,
+      "deadline": 10,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc2",
+      "budget": 3,
+      "deadline": 5,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc3",
+      "budget": 3,
+      "deadline": 7,
+      "release_time": 3,
+      "periodic": false
+    }
+  ],
+  "different_release_one_job_not_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 2,
+      "deadline": 10,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc2",
+      "budget": 3,
+      "deadline": 5,
+      "release_time": -1,
+      "periodic": false
+    },
+    {
+      "pid": "enc3",
+      "budget": 3,
+      "deadline": 7,
+      "release_time": 4,
+      "periodic": false
+    }
+  ],
+  "periodic_jobs_easy_schedule":
+  [
+    {
+      "pid": "enc1",
+      "budget": 2,
+      "period": 10,
+      "release_time": -1,
+      "periodic": true
+    },
+    {
+      "pid": "enc2",
+      "budget": 1,
+      "period": 3,
+      "release_time": -1,
+      "periodic": true
+    }
+  ],
+  "periodic_jobs_first_job_misses_1_deadline":
+  [
+    {
+      "pid": "enc1",
+      "budget": 2,
+      "period": 10,
+      "release_time": -1,
+      "periodic": true
+    },
+    {
+      "pid": "enc2",
+      "budget": 2,
+      "period": 3,
+      "release_time": -1,
+      "periodic": true
+    }
+  ],
+  "periodic_jobs_more_cycles":
+  [
+    {
+      "pid": "enc1",
+      "budget": 200,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true
+    },
+    {
+      "pid": "enc2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true
+    }
+  ],
+  "simple_periodic_jobs_with_clix":
+  [
+    {
+      "pid": "enc1",
+      "budget": 200,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 200,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 199
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 150
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_with_clix_violation_too_long":
+  [
+    {
+      "pid": "enc1",
+      "budget": 200,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 600,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 199
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 150
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_with_clix_violation_clix_in_clix":
+  [
+    {
+      "pid": "enc1",
+      "budget": 200,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 200,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 198
+        },
+        {
+          "type": "clix",
+          "param": 200,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 198
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 150
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_with_clix_unschedulable":
+  [
+    {
+      "pid": "T1",
+      "budget": 300,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 300,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 299
+        }
+      ]
+    },
+    {
+      "pid": "T2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 150,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 149
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_with_clix_unschedulable2":
+  [
+    {
+      "pid": "T1",
+      "budget": 500,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 500,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 499
+        }
+      ]
+    },
+    {
+      "pid": "T2",
+      "budget": 100,
+      "period": 600,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 100,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_with_clix_unschedulable3":
+  [
+    {
+      "pid": "T1",
+      "budget": 500,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 500,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 499
+        }
+      ]
+    },
+    {
+      "pid": "T2",
+      "budget": 80,
+      "period": 550,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 80,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 79
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_without_clix_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 300,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 300
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 150
+        }
+      ]
+    }
+  ],
+  "Periodic_jobs_with_clix_break_guarantees_by_clix_ending":
+  [
+    {
+      "pid": "enc1",
+      "budget": 200,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 199
+        },
+        {
+          "type": "clix",
+          "param": 200,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 199
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 150,
+      "period": 300,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 150
+        }
+      ]
+    }
+  ],
+  "clix_schedulable_A1_1":
+  [
+    {
+      "pid": "T1",
+      "budget": 500,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 500,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length":499
+        }
+      ]
+    },
+    {
+      "pid": "T2",
+      "budget": 80,
+      "period": 600,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 80,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 79
+        }
+      ]
+    }
+  ],
+  "clix_unschedulable_A1_2":
+  [
+    {
+      "pid": "enc1",
+      "budget": 50,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 50,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length":49
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 15,
+      "period": 85,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 15,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 14
+        }
+      ]
+    }
+  ],
+  "A2_1_clix_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 899,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 899,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 898
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 60,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 60,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 59
+        }
+      ]
+    }
+  ],
+  "A2_2_clix_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 479,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 479,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 478
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 480,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 480,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 479
+        }
+      ]
+    }
+  ],
+  "B4_1_clix_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 499,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 499,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 498
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 400,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        }
+      ]
+    }
+  ],
+  "B4_2_clix_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 299,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 298,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 298
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 400,
+      "period": 800,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        }
+      ]
+    }
+  ],
+  "B4_3_clix_schedulable":
+  [
+    {
+      "pid": "enc1",
+      "budget": 360,
+      "period": 1000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 179,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 179
+        },
+        {
+          "type": "clix",
+          "param": 179,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 179
+        }
+      ]
+    },
+    {
+      "pid": "enc2",
+      "budget": 400,
+      "period": 800,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        },
+        {
+          "type": "clix",
+          "param": 99,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 99
+        }
+      ]
+    }
+  ],
+  "Pres_easy_schedule":
+  [
+    {
+      "pid": "T1",
+      "budget": 360,
+      "period": 500,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "clix",
+          "param": 359,
+          "length": 1
+        },
+        {
+          "type": "calc",
+          "param": null,
+          "length": 359
+        }
+      ]
+    }
+  ],
+  "Pres_one_job_preempted":
+  [
+    {
+      "pid": "T1",
+      "budget": 250,
+      "period": 500,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 250
+        }
+      ]
+    },
+    {
+      "pid": "T2",
+      "budget": 100,
+      "period": 250,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 200
+        }
+      ]
+    }
+  ],
+  "3 jobs problems if just appending":
+  [
+    {
+      "pid": "T1",
+      "budget": 50,
+      "period": 200,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 50
+        }
+      ]
+    },
+    {
+      "pid": "T2",
+      "budget": 50,
+      "period": 200,
+      "release_time": 20,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+          "length": 50
+        }
+      ]
+    },
+    {
+      "pid": "T3",
+      "budget": 100,
+      "period": 2000,
+      "release_time": -1,
+      "periodic": true,
+      "program": [
+        {
+          "type": "calc",
+          "param": null,
+        "length": 100
+        }
+      ]
+    }
+  ]
+}
