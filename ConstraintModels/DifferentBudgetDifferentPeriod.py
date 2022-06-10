@@ -230,7 +230,7 @@ atomicity_c = [atomicity_of_task(X, i) for i in range(NR_TASKS)]
 # ---EDF Constraints---
 # There will be at each moment one task running, or all tasks have finished running
 # So for each time point j: either some task is running, or all tasks have currently finished their periodic run.
-no_idling_when_tasks_ready_c = [Or(some_task_is_running(X, j), all_tasks_finished_their_run(X, j)) #TODO: dit is te restrictief!!! Zou moeten zijn, all_tasks finished their run this period...
+no_idling_when_tasks_ready_c = [Or(some_task_is_running(X, j), all_tasks_finished_their_run(X, j)) 
                                 for j in range(OBSERVATION_WINDOW)]
 
 # The task running, will be that with the earliest deadline:
